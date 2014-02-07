@@ -16,25 +16,26 @@ q: quit presentation
 There are two special formating tags that are available:
 
 "::slide::" : defines a new slide. It will clear the screan and output next line.
-"::bold::" : make the appending line bold
+
+"::bold::" : make the appending line bold.
 
 
 Example text in textfile:
 
-::slide::
-Bla bla bla bla
-Bla bla pjatt pjatt
-Bla bla bla
-::slide::
-Bla bla bla bla
-Svada svada svada pjatt
-Pjatt pjatt svada pjatt
-Bla bla bla 
-::slide::
-::bold::
-Bla bla bla
-Bla pjatt pjatt
-::bold::
-Pjatt svada svada
-Svada tran og sana sol
-Pjatt pjatt pjatt
+::slide::<br/>
+Bla bla bla bla<br/>
+Bla bla pjatt pjatt<br/>
+Bla bla bla<br/>
+::slide::<br/>
+Bla bla bla bla<br/>
+Svada svada svada pjatt<br/>
+Pjatt pjatt svada pjatt<br/>
+Bla bla bla <br/>
+::slide::<br/>
+::bold::<br/>
+Bla bla bla<br/>
+Bla pjatt pjatt<br/>
+::bold::<br/>
+Pjatt svada svada<br/>
+Svada tran og sana sol<br/>
+Pjatt pjatt pjatt<br/>

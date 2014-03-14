@@ -1,9 +1,5 @@
 #!/bin/bash
 
-current_row=0
-current_line="x";
-
-
 #########################################
 #   sub-routines
 ########################################
@@ -21,7 +17,8 @@ print_line(){
         	("bold") tput bold;;
     	esac
 
-    	printf "%*s\n\n" `expr "$total_line" "/" 2`  "$current_line"; 
+    	#printf "%*s\n\n" `expr "$total_line" "/" 2`  "$current_line"; 
+	printf "%30s %s\n\n" ""  "$current_line";
 }
 
 
@@ -90,16 +87,16 @@ prev(){
 #########################################
 #   App Start: check input
 ########################################
-FILE="$1"
+
 
 if [ -z $1 ] ; then
-    echo "Must have a file to present"
+    echo "Usage: ./zab [filename]"
     exit
+else
+    FILE="$1"
 fi 
 
-if [ -f $FILE ] ; then
-   echo " ";
-else
+if [ ! -f $FILE ] ; then
    echo "File not found"
    exit
 fi
@@ -112,8 +109,14 @@ tput reset
 # reset style
 tput me
 
+# count lines
+file_lines_count=`cat $FILE | wc -l`;
 
-file_lines=`cat $FILE | wc -l`;
+height=$(tput lines);
+width=$(tput cols);
+
+current_row=0
+current_line="x";
 
 
 ######################################
@@ -123,11 +126,6 @@ file_lines=`cat $FILE | wc -l`;
 
 ## wait for input
 read -n 1 -s INPUT
-
-
-height=$(tput lines);
-width=$(tput cols);
-
 
 #  Valid input:
 #  
@@ -151,8 +149,8 @@ while [ "$INPUT" != "q" ]; do
         current_row=0
     fi
 
-    if [ "$current_row" -gt "$file_lines" ] ; then 
-        current_row=$file_lines
+    if [ "$current_row" -gt "$file_lines_count" ] ; then 
+        current_row=$file_lines_count
     fi
 
     # next input

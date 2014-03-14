@@ -145,7 +145,7 @@ while [ "$INPUT" != "q" ]; do
     esac
 
 
-    if [ "$current_row" '<' 0 ] ; then 
+    if [ "$current_row" -lt 0 ] ; then 
         current_row=0
     fi
 

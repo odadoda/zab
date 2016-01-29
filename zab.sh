@@ -16,9 +16,15 @@ print_line(){
     	case $format in
         	("bold") tput bold;;
     	esac
-
-    	#printf "%*s\n\n" `expr "$total_line" "/" 2`  "$current_line"; 
-	printf "%30s %s\n\n" ""  "$current_line";
+    
+    if [ ${current_line:0:2} == "#!" ];
+        then printf "$(${current_line:2}) \n";
+        else
+        #printf "%*s\n\n" `expr "$total_line" "/" 2`  "$current_line"; 
+	    printf "%30s %s\n\n" ""  "$current_line";
+    fi
+    
+    	
 }
 
 
@@ -47,7 +53,7 @@ next(){
 		("::slide::") 
 			slide;;
 
-		("::b::") 
+		("::bold::") 
 	        	bold;;
 		( * ) 
 			print_line;;
@@ -150,7 +156,7 @@ while [ "$INPUT" != "q" ]; do
     fi
 
     if [ "$current_row" -gt "$file_lines_count" ] ; then 
-        current_row=$file_lines_count
+        tput cl
     fi
 
     # next input

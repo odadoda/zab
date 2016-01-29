@@ -1,0 +1,18 @@
+::slide::
+Bla bla bla bla
+#!cat zab.sh
+Bla bla pjatt pjatt
+Bla bla bla
+::slide::
+Bla bla bla bla
+Svada svada svada pjatt
+Pjatt pjatt svada pjatt
+Bla bla bla 
+::slide::
+::bold::
+Bla bla bla
+Bla pjatt pjatt
+::bold::
+Pjatt svada svada
+Svada tran og sana sol
+Pjatt pjatt pjatt
